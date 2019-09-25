@@ -34,6 +34,8 @@ namespace DatingApp.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //#dodaje bo to się przyda do hedera 
             services.AddCors();
+            // dodajemy usera singleton = single service 
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
