@@ -49,11 +49,17 @@ namespace DatingApp.API
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 //app.UseHsts();
+                //app.UseDefaultFiles();
+                //app.UseStaticFiles();
+                //app.UseMvc();
             }
+            
 
             //app.UseHttpsRedirection();
             //to remove browser error//network policy
+            //app.UseCors(x=>x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseCors( x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseAuthentication();
             app.UseMvc();
         }
     }
