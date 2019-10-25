@@ -8,6 +8,7 @@ namespace DatingApp.API.Data
     public class AuthRepository : IAuthRepository
     {
         private readonly DataContext _context;
+        // test
 
         public AuthRepository(DataContext context)
         {
@@ -23,6 +24,8 @@ namespace DatingApp.API.Data
             if(!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 return null;
             return user;
+
+            
         }
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
