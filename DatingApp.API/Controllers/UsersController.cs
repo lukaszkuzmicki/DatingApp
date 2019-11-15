@@ -44,7 +44,15 @@ namespace DatingApp.API.Controllers
 
             return Ok(userToReturn);
         }
-            
+        
+        [AllowAnonymous]
+        [HttpGet("secret")]
+        public async Task<IActionResult> GetAll()
+        {
+            var users = await _repo.GetUsers();
+
+            return Ok(users);
+        }
 
     }
 }
