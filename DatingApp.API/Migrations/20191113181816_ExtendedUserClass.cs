@@ -40,7 +40,7 @@ namespace DatingApp.API.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "Introcution",
+                name: "Introduction",
                 table: "Users",
                 nullable: true);
 
@@ -50,7 +50,7 @@ namespace DatingApp.API.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<DateTime>(
-                name: "LasActive",
+                name: "LastActive",
                 table: "Users",
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
@@ -119,7 +119,7 @@ namespace DatingApp.API.Migrations
                 table: "Users");
 
             migrationBuilder.DropColumn(
-                name: "Introcution",
+                name: "Introduction",
                 table: "Users");
 
             migrationBuilder.DropColumn(
@@ -127,7 +127,7 @@ namespace DatingApp.API.Migrations
                 table: "Users");
 
             migrationBuilder.DropColumn(
-                name: "LasActive",
+                name: "LastActive",
                 table: "Users");
 
             migrationBuilder.DropColumn(
