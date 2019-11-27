@@ -9,6 +9,7 @@ import { MemberDetailResolver } from './_resolvers/member-details-resolver';
 import { MemberListResolver } from './_resolvers/member-list-resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit-resolver';
+import { PreventUnsachedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 // first match go there - ordering is important -> ** at the end 
 export const appRoutes: Routes = [
@@ -22,7 +23,8 @@ export const appRoutes: Routes = [
             {path: 'members', component: MemberListComponent, resolve: {users: MemberListResolver}},
             {path: 'members/:id', component: MemberDetailComponent, resolve: {user: MemberDetailResolver}},
             // do not need to specify ID as we will get it from token ;-)
-            {path: 'member/edit', component: MemberEditComponent, resolve: {user: MemberEditResolver}},
+            {path: 'member/edit', component: MemberEditComponent, 
+                resolve: {user: MemberEditResolver}, canDeactivate: [PreventUnsachedChanges]},
             {path: 'messages', component: MessagesComponent},
             {path: 'lists', component: ListsComponent},
         ]
