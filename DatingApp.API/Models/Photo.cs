@@ -9,6 +9,7 @@ namespace DatingApp.API.Models
         public string description { get; set; }
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
+        public string PublicId { get; set; }
         // dzieki temu co tu zrobiliśmy wynikiem migraci będzie:  jeżeli skasujemy usera to skasujemy też zdjęcia -> onDelete: ReferentialAction.Cascade itp
         public User User { get; set; }
         public int UserId { get; set; }
