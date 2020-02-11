@@ -15,6 +15,8 @@ export class MemberEditComponent implements OnInit {
   //to jest potrzebne zeby uzyskac dostep do form
   @ViewChild('editForm', {static: true}) editForm: NgForm;
   user: User;
+  photoUrl: string;
+
   // this will prevent from "X"(exit) button -user will be promted 
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any){
@@ -32,6 +34,8 @@ export class MemberEditComponent implements OnInit {
     this.route.data.subscribe(data =>{
       this.user = data['user'];
     });
+
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   // this.authService.decodedToken.nameid = USER ID 
